@@ -1,0 +1,19 @@
+{
+  "skin_switching.query": "Looking up %s's Minecraft Java skin…",
+  "skin_switching.applied": "Now wearing %s's skin. Use /skin reset to restore your own.",
+  "skin_switching.sync.sent": "Saved %s's skin and notified all players. Clients are downloading it.",
+  "skin_switching.reset": "Restored your original skin and cancelled pending changes.",
+  "skin_switching.status.client": "Client only · Current skin: %s. Change: /skin switching name; restore: /skin reset",
+  "skin_switching.status.sync": "Multiplayer sync · Selected skin: %s. Change: /skin switching name; restore: /skin reset",
+  "skin_switching.error.invalid_name": "Enter a Minecraft Java username: 1–16 letters, numbers or underscores.",
+  "skin_switching.error.not_found": "No Minecraft Java account found. Check the name; your current skin is unchanged.",
+  "skin_switching.error.no_skin": "This account has no available custom skin. Your current skin is unchanged.",
+  "skin_switching.error.network": "Cannot reach Mojang. Check your connection and try later; the displayed skin is unchanged.",
+  "skin_switching.error.rate_limit": "Mojang has temporarily rate-limited requests. Please try later.",
+  "skin_switching.error.cooldown": "Wait 5 seconds between lookups. Reset is always available.",
+  "skin_switching.error.busy": "The skin download queue is full. Please try later.",
+  "skin_switching.error.invalid_profile": "Invalid or incomplete skin profile. The displayed skin is unchanged.",
+  "skin_switching.error.signature": "Mojang skin signature verification failed. The displayed skin is unchanged.",
+  "skin_switching.error.texture": "Could not download or read the skin image. The displayed skin is unchanged. Retry the switch command.",
+  "skin_switching.error.storage": "Cannot read or save skin selections. Check logs, the saved file and directory permissions."
+}

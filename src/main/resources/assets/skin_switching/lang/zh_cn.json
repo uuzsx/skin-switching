@@ -1,0 +1,19 @@
+{
+  "skin_switching.query": "正在查询 %s 的正版皮肤……",
+  "skin_switching.applied": "已使用 %s 的皮肤。输入 /skin reset 恢复。",
+  "skin_switching.sync.sent": "已保存 %s 的皮肤并通知同服玩家，客户端正在下载。",
+  "skin_switching.reset": "已恢复原皮肤，并取消尚未完成的切换。",
+  "skin_switching.status.client": "仅自己可见 · 当前皮肤：%s。切换：/skin switching 玩家名；恢复：/skin reset",
+  "skin_switching.status.sync": "联机同步 · 当前选择：%s。切换：/skin switching 玩家名；恢复：/skin reset",
+  "skin_switching.error.invalid_name": "玩家名只能包含 1–16 个英文字母、数字或下划线，请输入 Java 版正版用户名。",
+  "skin_switching.error.not_found": "未找到这个正版用户。请检查用户名，当前皮肤未改变。",
+  "skin_switching.error.no_skin": "这个用户没有可用的自定义皮肤，当前皮肤未改变。",
+  "skin_switching.error.network": "无法连接 Mojang 服务。请检查网络并稍后重试，当前显示的皮肤未改变。",
+  "skin_switching.error.rate_limit": "Mojang 暂时限制了查询次数，请稍后再试。",
+  "skin_switching.error.cooldown": "切换过于频繁，请在上次查询 5 秒后重试。恢复皮肤不受限制。",
+  "skin_switching.error.busy": "皮肤下载队列已满，请稍后重试。",
+  "skin_switching.error.invalid_profile": "收到的皮肤资料不完整或不合法，当前显示的皮肤未改变。",
+  "skin_switching.error.signature": "Mojang 皮肤签名验证失败，当前显示的皮肤未改变。",
+  "skin_switching.error.texture": "皮肤图片下载或读取失败，当前显示的皮肤未改变。联机版可重新输入切换指令重试。",
+  "skin_switching.error.storage": "无法读取或保存皮肤选择。请检查日志、存档文件及目录写入权限。"
+}

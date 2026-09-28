@@ -1,0 +1,60 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.147'
+}
+
+version = '0.1.0'
+group = 'io.github.skinswitching'
+base.archivesName = 'skin-switching-1.21.1'
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+java.withSourcesJar()
+sourceSets { smoke }
+
+repositories { mavenCentral() }
+neoForge {
+    version = '21.1.251'
+    addModdingDependenciesTo sourceSets.smoke
+    mods {
+        skin_switching { sourceSet sourceSets.main }
+        skin_switching_smoke { sourceSet sourceSets.smoke }
+    }
+    runs {
+        client { client(); loadedMods = [mods.skin_switching] }
+        server { server(); programArgument '--nogui'; loadedMods = [mods.skin_switching] }
+        smokeClient {
+            client()
+            sourceSet = sourceSets.smoke
+            loadedMods = [mods.skin_switching, mods.skin_switching_smoke]
+            gameDirectory = file('run-smoke')
+        }
+        smokePlay {
+            client()
+            sourceSet = sourceSets.smoke
+            loadedMods = [mods.skin_switching, mods.skin_switching_smoke]
+            systemProperty 'skin_switching.gameplaySmoke', 'true'
+            gameDirectory = file('run-smoke-play')
+        }
+    }
+    unitTest { enable(); testedMod = mods.skin_switching; loadedMods = [mods.skin_switching] }
+}
+
+dependencies {
+    smokeImplementation sourceSets.main.output
+    testImplementation platform('org.junit:junit-bom:5.11.4')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+tasks.withType(Test).configureEach { useJUnitPlatform() }
+tasks.withType(Jar).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+    from('LICENSE')
+}
+tasks.named('jar') { archiveClassifier = 'sync' }
+tasks.register('clientJar', Jar) {
+    archiveClassifier = 'client'
+    from(sourceSets.main.output) { exclude 'skin-switching-mode.txt' }
+    from('src/clientFlavor')
+}
+tasks.named('assemble') { dependsOn 'clientJar' }
