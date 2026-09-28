@@ -1,60 +1,87 @@
-plugins {
-    id 'java-library'
-    id 'net.neoforged.moddev' version '2.0.147'
-}
+import groovy.json.JsonSlurper
 
-version = '0.1.0'
-group = 'io.github.skinswitching'
-base.archivesName = 'skin-switching-1.21.1'
-java.toolchain.languageVersion = JavaLanguageVersion.of(21)
-java.withSourcesJar()
-sourceSets { smoke }
+plugins { id 'net.neoforged.moddev' version '2.0.147' apply false }
+def targets = new JsonSlurper().parse(file('versions.json'))
 
-repositories { mavenCentral() }
-neoForge {
-    version = '21.1.251'
-    addModdingDependenciesTo sourceSets.smoke
-    mods {
-        skin_switching { sourceSet sourceSets.main }
-        skin_switching_smoke { sourceSet sourceSets.smoke }
-    }
-    runs {
-        client { client(); loadedMods = [mods.skin_switching] }
-        server { server(); programArgument '--nogui'; loadedMods = [mods.skin_switching] }
-        smokeClient {
-            client()
-            sourceSet = sourceSets.smoke
-            loadedMods = [mods.skin_switching, mods.skin_switching_smoke]
-            gameDirectory = file('run-smoke')
+subprojects {
+    apply plugin: 'java-library'
+    apply plugin: 'net.neoforged.moddev'
+    def target = targets[project.name]
+    version = '0.2.0'
+    group = 'io.github.skinswitching'
+    base.archivesName = "skin-switching-${target.minecraft}"
+    java.toolchain.languageVersion = JavaLanguageVersion.of(target.java as int)
+    java.withSourcesJar()
+    repositories { mavenCentral() }
+    sourceSets {
+        main {
+            java.srcDirs = [rootProject.file('shared/src/main/java'), rootProject.file("${target.platform}/src/main/java")]
+            resources.srcDirs = [rootProject.file('shared/src/main/resources')]
         }
-        smokePlay {
-            client()
-            sourceSet = sourceSets.smoke
-            loadedMods = [mods.skin_switching, mods.skin_switching_smoke]
-            systemProperty 'skin_switching.gameplaySmoke', 'true'
-            gameDirectory = file('run-smoke-play')
+        test {
+            java.srcDirs = [rootProject.file('shared/src/test/java')]
+            resources.srcDirs = [rootProject.file('shared/src/test/resources')]
+        }
+        smoke {
+            java.srcDirs = [rootProject.file("${target.platform}/src/smoke/java"), rootProject.file("smokeAdapters/${target.minecraft == '26.3' ? 'v263' : 'pre263'}")]
+            resources.srcDirs = [rootProject.file("${target.platform}/src/smoke/resources")]
         }
     }
-    unitTest { enable(); testedMod = mods.skin_switching; loadedMods = [mods.skin_switching] }
+    neoForge {
+        version = target.neoforge
+        addModdingDependenciesTo sourceSets.smoke
+        mods {
+            skin_switching { sourceSet sourceSets.main }
+            skin_switching_smoke { sourceSet sourceSets.smoke }
+        }
+        runs {
+            client {
+                client()
+                programArgument '--accessToken'; programArgument '0'
+                loadedMods = [mods.skin_switching]
+            }
+            server { server(); programArgument '--nogui'; loadedMods = [mods.skin_switching] }
+            smokeClient {
+                client(); sourceSet = sourceSets.smoke
+                // An explicit dummy token keeps 26.x development runs on Mojang's public-key verifier.
+                programArgument '--accessToken'; programArgument '0'
+                loadedMods = [mods.skin_switching, mods.skin_switching_smoke]
+                gameDirectory = file('run-smoke')
+            }
+            smokePlay {
+                client(); sourceSet = sourceSets.smoke
+                programArgument '--accessToken'; programArgument '0'
+                loadedMods = [mods.skin_switching, mods.skin_switching_smoke]
+                systemProperty 'skin_switching.gameplaySmoke', 'true'
+                gameDirectory = file('run-smoke-play')
+            }
+        }
+        unitTest { enable(); testedMod = mods.skin_switching; loadedMods = [mods.skin_switching] }
+    }
+    dependencies {
+        smokeImplementation sourceSets.main.output
+        testImplementation platform('org.junit:junit-bom:5.11.4')
+        testImplementation 'org.junit.jupiter:junit-jupiter'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    }
+    tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+    tasks.withType(Test).configureEach { useJUnitPlatform() }
+    tasks.named('processResources') {
+        def replacements = [modVersion: project.version, minecraftVersion: target.minecraft,
+                            neoRange: target.neoRange, loaderRange: target.loader, javaVersion: target.java]
+        inputs.properties replacements
+        filesMatching(['META-INF/neoforge.mods.toml', 'skin_switching.mixins.json']) { expand replacements }
+    }
+    tasks.withType(Jar).configureEach {
+        preserveFileTimestamps = false
+        reproducibleFileOrder = true
+        from(rootProject.file('LICENSE'))
+    }
+    tasks.named('jar') { archiveClassifier = 'sync' }
+    tasks.register('clientJar', Jar) {
+        archiveClassifier = 'client'
+        from(sourceSets.main.output) { exclude 'skin-switching-mode.txt' }
+        from(rootProject.file('clientFlavor'))
+    }
+    tasks.named('assemble') { dependsOn 'clientJar' }
 }
-
-dependencies {
-    smokeImplementation sourceSets.main.output
-    testImplementation platform('org.junit:junit-bom:5.11.4')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-}
-tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
-tasks.withType(Test).configureEach { useJUnitPlatform() }
-tasks.withType(Jar).configureEach {
-    preserveFileTimestamps = false
-    reproducibleFileOrder = true
-    from('LICENSE')
-}
-tasks.named('jar') { archiveClassifier = 'sync' }
-tasks.register('clientJar', Jar) {
-    archiveClassifier = 'client'
-    from(sourceSets.main.output) { exclude 'skin-switching-mode.txt' }
-    from('src/clientFlavor')
-}
-tasks.named('assemble') { dependsOn 'clientJar' }

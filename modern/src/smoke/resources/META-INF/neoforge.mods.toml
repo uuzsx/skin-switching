@@ -1,0 +1,7 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+[[mods]]
+modId="skin_switching_smoke"
+version="1"
+displayName="Skin Switching development smoke tests"

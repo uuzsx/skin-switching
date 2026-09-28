@@ -1,2 +1,3 @@
 pluginManagement { repositories { gradlePluginPortal() } }
-rootProject.name = 'skin-switching'
+rootProject.name = 'skin-switching-multiversion'
+include 'mc1212', 'mc2611', 'mc2612', 'mc263'

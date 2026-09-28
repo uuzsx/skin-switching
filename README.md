@@ -1,21 +1,48 @@
-# Skin Switching · 皮肤切换
+# Skin Switching · 多版本皮肤切换
 
-在游戏里输入正版 Java 版用户名，直接使用对方当前的自定义皮肤。无需手动下载、导入图片，也无需对方账号密码。提供两个独立安装包，**一次只装其中一个**。
+使用 `/Skin Switching SXUUZ` 将自己的游戏内皮肤切换为指定 Java 版正版用户的自定义皮肤。提供“仅自己可见”与“联机同步”两种独立安装包。
 
-## 环境与安装
+## 下载
 
-- Minecraft **Java 版 1.21.1**。
-- **NeoForge 21.1.251 或更新的 21.1.x**，Java 21。
-- 不适用于 Forge、Fabric、基岩版或其他游戏版本。
+[最新多版本安装包](https://github.com/uuzsx/skin-switching/releases/tag/v0.2.0) · [1.21.1 安装包](https://github.com/uuzsx/skin-switching/releases/tag/v0.1.0)
 
-| 安装包后缀 | 安装位置 | 谁能看到 | 适用情况 |
+在 Releases 的 **Assets** 中下载对应 JAR；`Source code` 是开发源码。每个游戏实例仅安装一个 JAR。
+
+| Minecraft | 仅自己可见 | 联机同步 |
+| --- | --- | --- |
+| 1.21.1 | [客户端版](https://github.com/uuzsx/skin-switching/releases/download/v0.1.0/skin-switching-1.21.1-0.1.0-client.jar) | [同步版](https://github.com/uuzsx/skin-switching/releases/download/v0.1.0/skin-switching-1.21.1-0.1.0-sync.jar) |
+| 1.21.2 | [客户端版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.0/skin-switching-1.21.2-0.2.0-client.jar) | [同步版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.0/skin-switching-1.21.2-0.2.0-sync.jar) |
+| 26.1.1 | [客户端版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.0/skin-switching-26.1.1-0.2.0-client.jar) | [同步版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.0/skin-switching-26.1.1-0.2.0-sync.jar) |
+| 26.1.2 | [客户端版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.0/skin-switching-26.1.2-0.2.0-client.jar) | [同步版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.0/skin-switching-26.1.2-0.2.0-sync.jar) |
+| 26.3 | [客户端版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.0/skin-switching-26.3-0.2.0-client.jar) | [同步版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.0/skin-switching-26.3-0.2.0-sync.jar) |
+
+1.21.1 使用 NeoForge 21.1.251 或更新的 21.1.x、Java 21；[该版本源码与详细说明](https://github.com/uuzsx/skin-switching/tree/v0.1.0)。当前 `main` 分支对应下面的四个游戏版本。
+
+## 选择游戏版本
+
+| Minecraft Java 版 | 本次使用的 NeoForge | Java | 安装包数量 |
 | --- | --- | --- | --- |
-| `-client.jar` | 自己客户端的 `mods` 文件夹 | 只有自己 | 单人游戏，或服务器没有安装本模组时 |
-| `-sync.jar` | 服务器及所有玩家客户端的 `mods` 文件夹 | 安装联机版的同服玩家 | 希望大家看到彼此切换的皮肤 |
+| 1.21.2 | 21.2.1-beta | 21 | 客户端版、同步版各一份 |
+| 26.1.1 | 26.1.1.15-beta | 25 | 客户端版、同步版各一份 |
+| 26.1.2 | 26.1.2.112 | 25 | 客户端版、同步版各一份 |
+| 26.3 | 26.3.0.31-beta | 25 | 客户端版、同步版各一份 |
 
-两个文件的模组 ID 都是 `skin_switching`，**不能同时安装，也不能在同一联机服混用两种版本**。联机版使用必需的同步通道，缺少对应版本的客户端无法进入该服务器。
+版本必须匹配，不能把某个版本的 JAR 改名后用于其他版本。建议先使用表中的 NeoForge 构建；标有 `beta` 的是 NeoForge 官方测试构建。
 
-关闭游戏，将所选 JAR 放入当前游戏实例的 `mods` 文件夹，再启动游戏。不需要解压 JAR，也没有额外前置模组。启动器启用版本隔离时，请使用该实例自己的 `mods` 文件夹。
+**26.4 暂未提供安装包。** 2026-09-28 核对时，Minecraft 正式版清单没有 26.4，仅有 `26.4-snapshot-1`，NeoForge 也没有 26.4 构建。不能通过放宽版本声明来承诺兼容尚不可构建的版本。
+
+版本依据：[Mojang 官方版本清单](https://piston-meta.mojang.com/mc/game/version_manifest_v2.json)、[NeoForge 官方版本清单](https://maven.neoforged.net/api/maven/versions/releases/net/neoforged/neoforge)。Java 25 要求见 [NeoForge 26.1 移植说明](https://neoforged.net/news/26.1release/)。
+
+## 安装哪一份
+
+解压 `skin-switching-0.2.0-all-jars.zip`，打开对应游戏版本的文件夹，再从以下两种安装包中选一个。
+
+- `-client.jar`：只放进自己客户端的 `mods` 文件夹，只有自己看到替换效果，服务器不需要安装。
+- `-sync.jar`：服务器与所有玩家都放入同一游戏版本的同步版，服务器保存选择并同步外观。
+
+**每个游戏实例只安装一个 Skin Switching JAR。** 两种模式不能叠装，不同游戏版本也不能叠装。联机版使用必需的同步通道，服务器与客户端不能混用本地版和同步版。
+
+1.21.1 的 0.1.0 安装包保留在 [v0.1.0 Release](https://github.com/uuzsx/skin-switching/releases/tag/v0.1.0)，无需替换。
 
 ## 指令
 
@@ -27,48 +54,51 @@
 /skin status
 ```
 
-前三条都是切换自己的皮肤；`reset` 恢复原皮肤；`status` 查看模式、当前选择和简要帮助。根指令也可用 `/skinswitch`，例如 `/skinswitch switching SXUUZ`。保留用户最初要求的大小写指令 `/Skin Switching 用户名`。
+前三条效果相同：按用户名换肤；`reset` 恢复自己的原皮肤；`status` 查看当前模式和选择。也支持 `/skinswitch switching SXUUZ`。
 
-普通玩家即可使用，不要求开启作弊或拥有 OP。只能切换自己的外观，没有替其他玩家更换皮肤的管理指令。输入的是 Java 版正版用户名，不是昵称、UUID、网址或基岩版 Xbox 名字。
+普通玩家即可使用，不要求 OP 或开启作弊，只修改自己的外观。切换后按 F5 或打开背包查看；皮肤第二层与手臂粗细随目标皮肤变化，披风和鞘翅外观保持自己的。玩家名、UUID、背包、权限、聊天身份和官网账号皮肤均不改变。
 
-切换完成后可按 F5 或打开背包查看。包括皮肤第二层和粗／细手臂模型；披风、鞘翅外观仍使用自己的。玩家名、UUID、背包、权限和聊天身份不变。不会更改 Minecraft 官网的账号皮肤，也不会影响未使用本模组的其他游戏客户端。
+## 保存和失败处理
 
-## 保存与网络
+客户端版的选择保存在游戏目录 `config/skin-switching-client.json`；同步版保存在世界目录 `data/skin-switching.json`。按玩家 UUID 保存，登录时重新应用。图片缓存位于客户端 `skin-switching-cache`，关闭游戏后可清理。
 
-- 客户端版：选择保存在 `config/skin-switching-client.json`，按自己的玩家 UUID 记忆；重新进入世界或服务器后恢复。
-- 联机版：选择保存在 `<世界目录>/data/skin-switching.json`，按玩家 UUID 记忆；登录时由服务器同步已保存的选择。
-- 图片缓存位于客户端游戏目录下的 `skin-switching-cache`。关闭游戏后可以删除此缓存，之后需要重新下载。
-- `reset` 会清除相应选择，并取消尚未完成的切换；查询、图片或文件保存失败时保留当前显示的皮肤。
-- 联机版先保存选择，再通知客户端下载。若某个客户端网络不通，它会继续显示旧外观；网络恢复后可重新执行切换指令或重连重试。`status` 显示的是服务器已保存的选择。
-- 每位玩家两次查询至少间隔 5 秒；同名查询合并，成功资料缓存 10 分钟。保存的是查询时的皮肤资料，不会持续追踪对方之后的换肤。
+两次查询至少间隔 5 秒，恢复不受此限制。成功资料缓存 10 分钟；记录的是切换时的皮肤，不会持续追踪目标用户之后的换肤。
 
-用户名查询访问 `api.mojang.com`，签名皮肤资料访问 `sessionserver.mojang.com`，图片访问 `textures.minecraft.net`。全部使用 HTTPS；客户端验证 Mojang 的纹理签名。不会上传自己的账号令牌。联机版服务器需要能够访问前两个域名，客户端需要能够下载官方图片。
+查询官方资料使用 `api.mojang.com`、`sessionserver.mojang.com`，图片来自 `textures.minecraft.net`，均通过 HTTPS。无需提供任何账号密码或访问令牌。客户端验证 Mojang 皮肤签名；下载失败时保留当前外观，恢复会取消尚未完成的切换。
 
-如果用户名不存在、账号没有可用的自定义皮肤，或 Mojang 限流，聊天栏会给出原因。国内网络访问失败时，请检查上述域名的连通性后重试。
+同步版会先保存选择，再通知客户端下载；个别客户端下载失败时仍可能显示旧外观，网络恢复后可重新执行换肤指令或重连。不存在的用户名、没有可用自定义皮肤、官方限流及存档失败都会显示提示。
 
-## 开发与构建
+## 构建完整源码
 
-完整工程包含 Gradle Wrapper、源码、中文和英文语言文件、自动测试及独立的开发测试模组。
+需要 JDK 25；构建 1.21.2 子项目还需要本机安装 JDK 21。Gradle 会选择对应工具链。首次构建需要联网。
 
 ```powershell
-# 使用本机 Java 21；设置 JAVA_HOME 后运行：
 .\gradlew.bat build
+.\gradlew.bat :mc1212:build
+.\gradlew.bat :mc2611:build
+.\gradlew.bat :mc2612:build
+.\gradlew.bat :mc263:build
 ```
 
-macOS/Linux 使用 `./gradlew build`。第一次构建需要联网下载依赖。产物位于 `build/libs/`：`-client.jar`、`-sync.jar` 与 `-sources.jar`。完整源码 ZIP 比 `-sources.jar` 多了构建脚本和测试。
+macOS/Linux 使用 `./gradlew`。每个子项目的 `build/libs` 中会生成客户端版、同步版及源码 JAR。
+
+- `shared`：查询、命令、存储、服务器同步、语言资源与自动测试。
+- `legacy`：1.21.2 的皮肤显示与纹理接口。
+- `modern`：26 系列的 `PlayerSkin`、`ClientAsset`、纹理下载器和身份资料接口。
+- `versions.json`：各游戏版本、NeoForge 构建、Java 工具链和依赖范围。
 
 ```powershell
-.\gradlew.bat test              # 单元测试及 NeoForge 服务端环境加载检查
-.\gradlew.bat runSmokeClient    # 联网皮肤下载、签名、渲染入口和恢复测试
-.\scripts\smoke-both.ps1        # 依次启动两种模式，在新世界里执行实际指令
+.\gradlew.bat test
+.\scripts\smoke-matrix.ps1
+.\scripts\smoke-matrix.ps1 -Projects mc2612
 ```
 
-冒烟测试会短暂打开游戏窗口，创建独立测试目录和世界，完成后自动退出。`smoke-both.ps1` 会临时切换开发资源中的模式标记，并在结束时恢复；不要与其他构建任务同时运行。它不进入用户自己的世界。开发测试代码位于 `src/smoke`，不会打进发布 JAR。
+冒烟测试会逐个打开游戏，创建工程内部的临时测试世界，执行实际换肤和恢复指令，再自动退出。脚本会临时切换共用模式标记，并在退出时恢复，**不要与其他构建任务同时运行**。测试代码不会打进发布 JAR。
 
-实现通过客户端 `PlayerInfo.getSkin()` 注入替换展示外观；联机版通过 NeoForge 自定义 S2C 数据包同步来源资料，不修改玩家的实际 GameProfile，不依赖踢出重进或伪造重生包。
+开发客户端显式传入占位参数 `--accessToken 0`，用于避免 26 系列开发启动器自动启用离线认证服务，从而保留 Mojang 公钥签名校验。这不是账号凭据，正常安装发布版 JAR 不需要设置这个参数。
 
-## 兼容范围
+## 兼容性
 
-这是 0.1.0 首版。其他接管玩家皮肤、玩家渲染或 `/skin` 指令的模组可能冲突；指令冲突时可先试 `/skinswitch`。YSM 等替换整个玩家模型的模组可能使用自己的材质，不保证会采用本模组的皮肤。具体已测项目和未完成的多人验证见 `TESTING.md`。
+其他接管皮肤、玩家模型或 `/skin` 指令的模组可能冲突；指令冲突可先试 `/skinswitch`。YSM 等自带材质的自定义模型不保证采用本模组皮肤。具体测试结果与未验证场景见 `TESTING.md`。
 
-项目原创代码使用 MIT 许可证；Gradle Wrapper 的原有版权与 Apache 2.0 许可另见 `THIRD_PARTY_NOTICES.md`。
+原创代码使用 MIT 许可证，Gradle Wrapper 的许可另见 `THIRD_PARTY_NOTICES.md`。

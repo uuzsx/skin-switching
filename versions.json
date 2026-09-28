@@ -1,0 +1,34 @@
+{
+  "mc1212": {
+    "minecraft": "1.21.2",
+    "neoforge": "21.2.1-beta",
+    "loader": "[4,)",
+    "neoRange": "[21.2.1-beta,21.3)",
+    "java": 21,
+    "platform": "legacy"
+  },
+  "mc2611": {
+    "minecraft": "26.1.1",
+    "neoforge": "26.1.1.15-beta",
+    "loader": "[10,)",
+    "neoRange": "[26.1.1.15-beta,26.1.2)",
+    "java": 25,
+    "platform": "modern"
+  },
+  "mc2612": {
+    "minecraft": "26.1.2",
+    "neoforge": "26.1.2.112",
+    "loader": "[10,)",
+    "neoRange": "[26.1.2.112,26.1.3)",
+    "java": 25,
+    "platform": "modern"
+  },
+  "mc263": {
+    "minecraft": "26.3",
+    "neoforge": "26.3.0.31-beta",
+    "loader": "[10,)",
+    "neoRange": "[26.3.0.31-beta,26.3.1)",
+    "java": 25,
+    "platform": "modern"
+  }
+}

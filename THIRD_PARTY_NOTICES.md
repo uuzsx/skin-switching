@@ -8,9 +8,9 @@ in `licenses/GRADLE-LICENSE.txt`.
 NeoForge, Minecraft, Authlib, Brigadier, Gson, Netty, Mixin and JUnit are development
 or runtime dependencies with their own licenses. They are resolved by Gradle or
 provided by the game/loader; their binaries and Minecraft sources are not bundled
-in the two mod JARs or the source archive.
+in the mod JARs or the source archive.
 
-The test fixture `src/test/resources/sxuuz-profile.json` is public signed texture
+The test fixture `shared/src/test/resources/sxuuz-profile.json` is public signed texture
 metadata obtained from Mojang's session server for the example username SXUUZ.
 It contains no account credentials. Player skin artwork remains the property of
 its respective creators; no player skin images are bundled in the distribution.

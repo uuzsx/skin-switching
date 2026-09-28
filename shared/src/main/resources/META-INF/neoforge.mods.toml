@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="${loaderRange}"
+license="MIT"
+
+[[mods]]
+modId="skin_switching"
+version="${modVersion}"
+displayName="Skin Switching"
+authors="Skin Switching contributors"
+description='''Switch your in-game skin by Minecraft Java username. Client-only and multiplayer editions.'''
+
+[[mixins]]
+config="skin_switching.mixins.json"
+
+[[dependencies.skin_switching]]
+modId="neoforge"
+type="required"
+versionRange="${neoRange}"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.skin_switching]]
+modId="minecraft"
+type="required"
+versionRange="[${minecraftVersion}]"
+ordering="NONE"
+side="BOTH"

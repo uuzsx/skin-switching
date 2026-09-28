@@ -7,3 +7,5 @@ logs/
 crash-reports/
 .idea/
 *.iml
+*.log
+__pycache__/
