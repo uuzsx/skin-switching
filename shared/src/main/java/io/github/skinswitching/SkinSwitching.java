@@ -27,7 +27,7 @@ public final class SkinSwitching {
             ServerSkins.initialize();
         }
         if (PlatformRuntime.dist() == Dist.CLIENT) ClientSkins.initialize();
-        LOGGER.info("Skin Switching 0.2.0: {} edition", SYNC ? "multiplayer sync" : "client only");
+        LOGGER.info("Skin Switching: {} edition", SYNC ? "multiplayer sync" : "client only");
     }
     private void registerPayloads(RegisterPayloadHandlersEvent event) {
         event.registrar("1").playToClient(SkinPayload.TYPE, SkinPayload.CODEC,

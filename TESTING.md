@@ -1,4 +1,31 @@
-# Skin Switching 0.2.0 测试说明
+# Skin Switching 测试说明
+
+## 0.2.1：Minecraft 26.1.2 加载器兼容修复
+
+2026-09-30，仅更新 Minecraft 26.1.2 的两个安装包。最低 NeoForge 从 `26.1.2.112` 降至 `26.1.2.71`，上限仍为 `<26.1.3`，Minecraft 依赖仍精确限定为 `26.1.2`。
+
+在最低版本 `.71` 上重新编译并通过 17 项自动测试；分别启动最低版本 `.71`、用户使用的 `.109` 和原最低版本 `.112`，验证客户端版和同步版。具体通过记录随安装包保存在 `test-results.json` 的 `testedLoaders` 中。
+
+测试包括实际 `/Skin Switching SXUUZ` 指令、官方皮肤查询与签名校验、渲染入口皮肤资源切换、玩家身份保持、保存、恢复和过期异步结果取消。同步版经过集成服务器到客户端的实际数据包传输。
+
+`.109` 和 `.112` 的测试使用 `-ReuseMainClasses`，保留按 `.71` 编译的模组类，只更换测试加载器；另对类文件 SHA-256 进行前后核对。测试输出从正在运行的 NeoForge 读取版本号，并与请求的版本比对。
+
+本次没有测试朋友的完整整合包，也未复测两台独立客户端连接专用服务器。此次验证不能覆盖与其他换肤、认证或玩家模型模组的冲突。其他 Minecraft 版本的最低要求与已发布安装包保持原样。
+
+复现本次验证：
+
+```powershell
+.\gradlew.bat :mc2612:build
+.\scripts\smoke-matrix.ps1 -Projects mc2612
+.\scripts\smoke-matrix.ps1 -Projects mc2612 -NeoForge @{mc2612='26.1.2.109'} -ReuseMainClasses
+.\scripts\smoke-matrix.ps1 -Projects mc2612 -NeoForge @{mc2612='26.1.2.112'} -ReuseMainClasses
+.\gradlew.bat :mc2612:build
+python scripts/package.py --projects mc2612 --release 0.2.1
+```
+
+打包产物默认写入 `dist/skin-switching-0.2.1`；可以通过第一个位置参数指定输出目录。以下为 0.2.0 发布时的历史测试记录。
+
+## 0.2.0 历史验证
 
 测试平台：Windows，Minecraft Java 版 + NeoForge。1.21.2 使用 JDK 21，26 系列使用 JDK 25。各版本与加载器构建号见 README 和 `versions.json`。
 

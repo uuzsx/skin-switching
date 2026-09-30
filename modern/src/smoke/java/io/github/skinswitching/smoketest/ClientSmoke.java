@@ -120,6 +120,11 @@ public final class ClientSmoke {
     private void finish(boolean success, String message) {
         if (stage == 99) return;
         stage = 99;
+        String loader = net.neoforged.fml.ModList.get().getModContainerById("neoforge")
+                .orElseThrow().getModInfo().getVersion().toString();
+        String expected = System.getProperty("skin_switching.expectedNeoForge", loader);
+        if (!loader.equals(expected)) { success = false; message = "Expected NeoForge " + expected; }
+        message = "NeoForge " + loader + "; " + message;
         try { Files.writeString(Path.of("smoke-result-" + (SkinSwitching.SYNC ? "sync" : "client") + ".txt"), (success ? "PASS: " : "FAIL: ") + message); }
         catch (Exception e) { SkinSwitching.LOGGER.error("Cannot write smoke result", e); }
         SkinSwitching.LOGGER.info("SMOKE {}: {}", success ? "PASS" : "FAIL", message);

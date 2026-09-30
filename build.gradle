@@ -7,7 +7,8 @@ subprojects {
     apply plugin: 'java-library'
     apply plugin: 'net.neoforged.moddev'
     def target = targets[project.name]
-    version = '0.2.0'
+    def testedNeoForge = providers.gradleProperty("${project.name}.neoForge").getOrElse(target.neoforge)
+    version = target.modVersion ?: '0.2.0'
     group = 'io.github.skinswitching'
     base.archivesName = "skin-switching-${target.minecraft}"
     java.toolchain.languageVersion = JavaLanguageVersion.of(target.java as int)
@@ -28,7 +29,8 @@ subprojects {
         }
     }
     neoForge {
-        version = target.neoforge
+        // Compile on the supported minimum; allow explicit versions for compatibility runs.
+        version = testedNeoForge
         addModdingDependenciesTo sourceSets.smoke
         mods {
             skin_switching { sourceSet sourceSets.main }
@@ -53,6 +55,7 @@ subprojects {
                 programArgument '--accessToken'; programArgument '0'
                 loadedMods = [mods.skin_switching, mods.skin_switching_smoke]
                 systemProperty 'skin_switching.gameplaySmoke', 'true'
+                systemProperty 'skin_switching.expectedNeoForge', testedNeoForge
                 gameDirectory = file('run-smoke-play')
             }
         }

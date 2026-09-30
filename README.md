@@ -4,7 +4,7 @@
 
 ## 下载
 
-[最新多版本安装包](https://github.com/uuzsx/skin-switching/releases/tag/v0.2.0) · [1.21.1 安装包](https://github.com/uuzsx/skin-switching/releases/tag/v0.1.0)
+[26.1.2 兼容修正版 0.2.1](https://github.com/uuzsx/skin-switching/releases/tag/v0.2.1) · [其他多版本安装包](https://github.com/uuzsx/skin-switching/releases/tag/v0.2.0) · [1.21.1 安装包](https://github.com/uuzsx/skin-switching/releases/tag/v0.1.0)
 
 在 Releases 的 **Assets** 中下载对应 JAR；`Source code` 是开发源码。每个游戏实例仅安装一个 JAR。
 
@@ -13,21 +13,23 @@
 | 1.21.1 | [客户端版](https://github.com/uuzsx/skin-switching/releases/download/v0.1.0/skin-switching-1.21.1-0.1.0-client.jar) | [同步版](https://github.com/uuzsx/skin-switching/releases/download/v0.1.0/skin-switching-1.21.1-0.1.0-sync.jar) |
 | 1.21.2 | [客户端版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.0/skin-switching-1.21.2-0.2.0-client.jar) | [同步版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.0/skin-switching-1.21.2-0.2.0-sync.jar) |
 | 26.1.1 | [客户端版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.0/skin-switching-26.1.1-0.2.0-client.jar) | [同步版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.0/skin-switching-26.1.1-0.2.0-sync.jar) |
-| 26.1.2 | [客户端版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.0/skin-switching-26.1.2-0.2.0-client.jar) | [同步版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.0/skin-switching-26.1.2-0.2.0-sync.jar) |
+| 26.1.2 | [客户端版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.1/skin-switching-26.1.2-0.2.1-client.jar) | [同步版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.1/skin-switching-26.1.2-0.2.1-sync.jar) |
 | 26.3 | [客户端版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.0/skin-switching-26.3-0.2.0-client.jar) | [同步版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.0/skin-switching-26.3-0.2.0-sync.jar) |
 
 1.21.1 使用 NeoForge 21.1.251 或更新的 21.1.x、Java 21；[该版本源码与详细说明](https://github.com/uuzsx/skin-switching/tree/v0.1.0)。当前 `main` 分支对应下面的四个游戏版本。
 
 ## 选择游戏版本
 
-| Minecraft Java 版 | 本次使用的 NeoForge | Java | 安装包数量 |
+| Minecraft Java 版 | NeoForge 最低要求 | Java | 安装包数量 |
 | --- | --- | --- | --- |
 | 1.21.2 | 21.2.1-beta | 21 | 客户端版、同步版各一份 |
 | 26.1.1 | 26.1.1.15-beta | 25 | 客户端版、同步版各一份 |
-| 26.1.2 | 26.1.2.112 | 25 | 客户端版、同步版各一份 |
+| 26.1.2 | 26.1.2.71 | 25 | 客户端版、同步版各一份 |
 | 26.3 | 26.3.0.31-beta | 25 | 客户端版、同步版各一份 |
 
-版本必须匹配，不能把某个版本的 JAR 改名后用于其他版本。建议先使用表中的 NeoForge 构建；标有 `beta` 的是 NeoForge 官方测试构建。
+游戏版本必须匹配。满足表中最低要求的现有 NeoForge 可以保留，无需为了本模组升级到最新构建。标有 `beta` 的是 NeoForge 官方测试构建。
+
+**0.2.1 仅更新 Minecraft 26.1.2**：NeoForge 最低要求从 `26.1.2.112` 降至 `26.1.2.71`，兼容 `26.1.2.109`。功能、指令、保存格式和同步协议保持不变；其他游戏版本继续使用原安装包。
 
 **26.4 暂未提供安装包。** 2026-09-28 核对时，Minecraft 正式版清单没有 26.4，仅有 `26.4-snapshot-1`，NeoForge 也没有 26.4 构建。不能通过放宽版本声明来承诺兼容尚不可构建的版本。
 
@@ -35,7 +37,9 @@
 
 ## 安装哪一份
 
-解压 `skin-switching-0.2.0-all-jars.zip`，打开对应游戏版本的文件夹，再从以下两种安装包中选一个。
+Minecraft 26.1.2 请下载 0.2.1 的 JAR，或解压 `skin-switching-26.1.2-0.2.1-both-editions.zip`。其他游戏版本仍可从 0.2.0 总包及 1.21.1 的 0.1.0 发布页下载。
+
+关闭游戏，将旧版 Skin Switching JAR 从 `mods` 文件夹移出，再放入对应新版；配置和已保存的皮肤选择可以保留。从以下两种模式中选一个：
 
 - `-client.jar`：只放进自己客户端的 `mods` 文件夹，只有自己看到替换效果，服务器不需要安装。
 - `-sync.jar`：服务器与所有玩家都放入同一游戏版本的同步版，服务器保存选择并同步外观。
@@ -85,12 +89,14 @@ macOS/Linux 使用 `./gradlew`。每个子项目的 `build/libs` 中会生成客
 - `shared`：查询、命令、存储、服务器同步、语言资源与自动测试。
 - `legacy`：1.21.2 的皮肤显示与纹理接口。
 - `modern`：26 系列的 `PlayerSkin`、`ClientAsset`、纹理下载器和身份资料接口。
-- `versions.json`：各游戏版本、NeoForge 构建、Java 工具链和依赖范围。
+- `versions.json`：各游戏版本、NeoForge 最低构建、Java 工具链和依赖范围；`modVersion` 可覆盖该游戏版本的模组版本号。
 
 ```powershell
 .\gradlew.bat test
 .\scripts\smoke-matrix.ps1
 .\scripts\smoke-matrix.ps1 -Projects mc2612
+# 用最低版本编译的类，在指定的 NeoForge 版本运行：
+.\scripts\smoke-matrix.ps1 -Projects mc2612 -NeoForge @{mc2612='26.1.2.109'} -ReuseMainClasses
 ```
 
 冒烟测试会逐个打开游戏，创建工程内部的临时测试世界，执行实际换肤和恢复指令，再自动退出。脚本会临时切换共用模式标记，并在退出时恢复，**不要与其他构建任务同时运行**。测试代码不会打进发布 JAR。

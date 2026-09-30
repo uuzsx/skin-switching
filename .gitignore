@@ -9,3 +9,4 @@ crash-reports/
 *.iml
 *.log
 __pycache__/
+dist/
