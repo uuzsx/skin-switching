@@ -6,8 +6,10 @@ license="MIT"
 modId="skin_switching"
 version="${modVersion}"
 displayName="Skin Switching"
-authors="Skin Switching contributors"
-description='''Switch your in-game skin by Minecraft Java username. Client-only and multiplayer editions.'''
+authors="幼幼紫"
+description='''输入正版玩家名，轻松切换皮肤，支持本地显示与联机同步。'''
+logoFile="logo.png"
+logoBlur=false
 
 [[mixins]]
 config="skin_switching.mixins.json"

@@ -13,7 +13,7 @@ all_targets = json.loads((root / 'versions.json').read_text(encoding='utf-8'))
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('output', nargs='?')
 parser.add_argument('--projects', nargs='+', choices=list(all_targets), default=list(all_targets))
-parser.add_argument('--release', default='0.2.1')
+parser.add_argument('--release', default='0.2.2')
 args = parser.parse_args()
 release = args.release
 out = Path(args.output).resolve() if args.output else root / 'dist' / f'skin-switching-{release}'
@@ -42,6 +42,9 @@ for project, target in targets.items():
             assert target['neoRange'] in metadata
             assert f'version="{version}"' in metadata
             assert '${' not in metadata
+            assert 'authors="幼幼紫"' in metadata
+            assert 'logoFile="logo.png"' in metadata
+            assert jar.read('logo.png') == (root / 'shared/src/main/resources/logo.png').read_bytes()
             assert not any('smoketest' in n or '/core/CoreTest' in n for n in jar.namelist())
             assert json.loads(jar.read('assets/skin_switching/lang/en_us.json')).keys() == json.loads(jar.read('assets/skin_switching/lang/zh_cn.json')).keys()
             for entry in jar.namelist():

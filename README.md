@@ -1,22 +1,28 @@
 # Skin Switching · 多版本皮肤切换
 
-使用 `/Skin Switching SXUUZ` 将自己的游戏内皮肤切换为指定 Java 版正版用户的自定义皮肤。提供“仅自己可见”与“联机同步”两种独立安装包。
+![Skin Switching](shared/src/main/resources/logo.png)
+
+**作者：幼幼紫**
+
+输入正版玩家名，轻松切换皮肤，支持本地显示与联机同步。
+
+使用 `/Skin Switching SXUUZ` 即可换肤，提供“仅自己可见”与“联机同步”两种独立安装包。
 
 ## 下载
 
-[26.1.2 兼容修正版 0.2.1](https://github.com/uuzsx/skin-switching/releases/tag/v0.2.1) · [其他多版本安装包](https://github.com/uuzsx/skin-switching/releases/tag/v0.2.0) · [1.21.1 安装包](https://github.com/uuzsx/skin-switching/releases/tag/v0.1.0)
+[最新多版本安装包 0.2.2](https://github.com/uuzsx/skin-switching/releases/tag/v0.2.2) · [1.21.1 安装包 0.1.1](https://github.com/uuzsx/skin-switching/releases/tag/v0.1.1)
 
 在 Releases 的 **Assets** 中下载对应 JAR；`Source code` 是开发源码。每个游戏实例仅安装一个 JAR。
 
 | Minecraft | 仅自己可见 | 联机同步 |
 | --- | --- | --- |
-| 1.21.1 | [客户端版](https://github.com/uuzsx/skin-switching/releases/download/v0.1.0/skin-switching-1.21.1-0.1.0-client.jar) | [同步版](https://github.com/uuzsx/skin-switching/releases/download/v0.1.0/skin-switching-1.21.1-0.1.0-sync.jar) |
-| 1.21.2 | [客户端版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.0/skin-switching-1.21.2-0.2.0-client.jar) | [同步版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.0/skin-switching-1.21.2-0.2.0-sync.jar) |
-| 26.1.1 | [客户端版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.0/skin-switching-26.1.1-0.2.0-client.jar) | [同步版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.0/skin-switching-26.1.1-0.2.0-sync.jar) |
-| 26.1.2 | [客户端版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.1/skin-switching-26.1.2-0.2.1-client.jar) | [同步版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.1/skin-switching-26.1.2-0.2.1-sync.jar) |
-| 26.3 | [客户端版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.0/skin-switching-26.3-0.2.0-client.jar) | [同步版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.0/skin-switching-26.3-0.2.0-sync.jar) |
+| 1.21.1 | [客户端版](https://github.com/uuzsx/skin-switching/releases/download/v0.1.1/skin-switching-1.21.1-0.1.1-client.jar) | [同步版](https://github.com/uuzsx/skin-switching/releases/download/v0.1.1/skin-switching-1.21.1-0.1.1-sync.jar) |
+| 1.21.2 | [客户端版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.2/skin-switching-1.21.2-0.2.2-client.jar) | [同步版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.2/skin-switching-1.21.2-0.2.2-sync.jar) |
+| 26.1.1 | [客户端版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.2/skin-switching-26.1.1-0.2.2-client.jar) | [同步版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.2/skin-switching-26.1.1-0.2.2-sync.jar) |
+| 26.1.2 | [客户端版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.2/skin-switching-26.1.2-0.2.2-client.jar) | [同步版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.2/skin-switching-26.1.2-0.2.2-sync.jar) |
+| 26.3 | [客户端版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.2/skin-switching-26.3-0.2.2-client.jar) | [同步版](https://github.com/uuzsx/skin-switching/releases/download/v0.2.2/skin-switching-26.3-0.2.2-sync.jar) |
 
-1.21.1 使用 NeoForge 21.1.251 或更新的 21.1.x、Java 21；[该版本源码与详细说明](https://github.com/uuzsx/skin-switching/tree/v0.1.0)。当前 `main` 分支对应下面的四个游戏版本。
+1.21.1 使用 NeoForge 21.1.251 或更新的 21.1.x、Java 21；[该版本源码与详细说明](https://github.com/uuzsx/skin-switching/tree/v0.1.1)。当前 `main` 分支对应下面的四个游戏版本。
 
 ## 选择游戏版本
 
@@ -29,7 +35,7 @@
 
 游戏版本必须匹配。满足表中最低要求的现有 NeoForge 可以保留，无需为了本模组升级到最新构建。标有 `beta` 的是 NeoForge 官方测试构建。
 
-**0.2.1 仅更新 Minecraft 26.1.2**：NeoForge 最低要求从 `26.1.2.112` 降至 `26.1.2.71`，兼容 `26.1.2.109`。功能、指令、保存格式和同步协议保持不变；其他游戏版本继续使用原安装包。
+**兼容修复沿用 0.2.1 的设置**：Minecraft 26.1.2 的 NeoForge 最低要求从 `26.1.2.112` 降至 `26.1.2.71`，兼容 `26.1.2.109`。0.2.2 和 0.1.1 更新作者、简介与 Logo，所有游戏版本的功能、指令、保存格式、同步协议及 NeoForge 最低要求保持原样。
 
 **26.4 暂未提供安装包。** 2026-09-28 核对时，Minecraft 正式版清单没有 26.4，仅有 `26.4-snapshot-1`，NeoForge 也没有 26.4 构建。不能通过放宽版本声明来承诺兼容尚不可构建的版本。
 
@@ -37,7 +43,7 @@
 
 ## 安装哪一份
 
-Minecraft 26.1.2 请下载 0.2.1 的 JAR，或解压 `skin-switching-26.1.2-0.2.1-both-editions.zip`。其他游戏版本仍可从 0.2.0 总包及 1.21.1 的 0.1.0 发布页下载。
+下载对应游戏版本的 JAR，或解压 `skin-switching-0.2.2-all-versions.zip` 后按游戏版本和模式选择。1.21.1 的模组版本号为 0.1.1，其余四个游戏版本为 0.2.2。
 
 关闭游戏，将旧版 Skin Switching JAR 从 `mods` 文件夹移出，再放入对应新版；配置和已保存的皮肤选择可以保留。从以下两种模式中选一个：
 
@@ -46,7 +52,7 @@ Minecraft 26.1.2 请下载 0.2.1 的 JAR，或解压 `skin-switching-26.1.2-0.2.
 
 **每个游戏实例只安装一个 Skin Switching JAR。** 两种模式不能叠装，不同游戏版本也不能叠装。联机版使用必需的同步通道，服务器与客户端不能混用本地版和同步版。
 
-1.21.1 的 0.1.0 安装包保留在 [v0.1.0 Release](https://github.com/uuzsx/skin-switching/releases/tag/v0.1.0)，无需替换。
+1.21.1 的作者、简介与 Logo 更新包见 [v0.1.1 Release](https://github.com/uuzsx/skin-switching/releases/tag/v0.1.1)。
 
 ## 指令
 
