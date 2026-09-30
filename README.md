@@ -1,5 +1,13 @@
 # Skin Switching · 皮肤切换
 
+![Skin Switching](src/main/resources/logo.png)
+
+**作者：幼幼紫**
+
+输入正版玩家名，轻松切换皮肤，支持本地显示与联机同步。
+
+[下载 1.21.1 的 0.1.1 安装包](https://github.com/uuzsx/skin-switching/releases/tag/v0.1.1) · [其他游戏版本](https://github.com/uuzsx/skin-switching/releases/tag/v0.2.2)
+
 在游戏里输入正版 Java 版用户名，直接使用对方当前的自定义皮肤。无需手动下载、导入图片，也无需对方账号密码。提供两个独立安装包，**一次只装其中一个**。
 
 ## 环境与安装
@@ -69,6 +77,6 @@ macOS/Linux 使用 `./gradlew build`。第一次构建需要联网下载依赖�
 
 ## 兼容范围
 
-这是 0.1.0 首版。其他接管玩家皮肤、玩家渲染或 `/skin` 指令的模组可能冲突；指令冲突时可先试 `/skinswitch`。YSM 等替换整个玩家模型的模组可能使用自己的材质，不保证会采用本模组的皮肤。具体已测项目和未完成的多人验证见 `TESTING.md`。
+0.1.1 更新作者、简介与 Logo，功能与 NeoForge 最低要求保持不变。其他接管玩家皮肤、玩家渲染或 `/skin` 指令的模组可能冲突；指令冲突时可先试 `/skinswitch`。YSM 等替换整个玩家模型的模组可能使用自己的材质，不保证会采用本模组的皮肤。具体已测项目和未完成的多人验证见 `TESTING.md`。
 
 项目原创代码使用 MIT 许可证；Gradle Wrapper 的原有版权与 Apache 2.0 许可另见 `THIRD_PARTY_NOTICES.md`。
